@@ -1,14 +1,13 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = (env, argv) => {
-  const isProduction = argv.mode === 'production';
+  const isProduction = argv.mode === 'production'
 
   return {
     mode: isProduction ? 'production' : 'development',
     entry: {
       index: './src/index.js',
-      print: './src/print.js',
     },
     devtool: isProduction ? 'source-map' : 'inline-source-map',
     devServer: {
@@ -44,4 +43,4 @@ module.exports = (env, argv) => {
       ],
     },
   }
-};
+}
