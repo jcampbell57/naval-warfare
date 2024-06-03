@@ -1,4 +1,4 @@
-const Ship = require('../modules/ship')
+import Ship from '../modules/ship'
 
 describe('Ship class', () => {
   it('returns ship of specified length', () => {
