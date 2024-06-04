@@ -1,10 +1,10 @@
-const Gameboard = require('../modules/gameboard')
-const Ship = require('../modules/ship')
+import Gameboard from '../modules/gameboard'
+import Ship from '../modules/ship'
 
 describe('Gameboard class', () => {
   it('returns an empty gameboard', () => {
     const testBoard = new Gameboard()
-    expect(testBoard.squares).toEqual([
+    expect(testBoard.tiles).toEqual([
       [null, null, null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null, null, null],
       [null, null, null, null, null, null, null, null, null, null],
@@ -22,14 +22,14 @@ describe('Gameboard class', () => {
     const testBoard = new Gameboard()
     const testShip = new Ship(1)
     testBoard.placeShip(testShip, [0, 0])
-    expect(testBoard.squares[0][0]).toBe(testShip)
+    expect(testBoard.tiles[0][0]).toBe(testShip)
   })
 
   it('placeShip() does not allow a ship to be placed out of bounds', () => {
     const testBoard = new Gameboard()
     const testShip = new Ship(5)
     const result = testBoard.placeShip(testShip, [0, 8])
-    expect(result).toBe('Out of bounds.')
+    expect(result).toBe(false)
   })
 
   it('placeShip() does not allow a ship to be placed over another ship', () => {
@@ -38,13 +38,13 @@ describe('Gameboard class', () => {
     const testShip2 = new Ship(2)
     testBoard.placeShip(testShip1, [0, 0])
     const result = testBoard.placeShip(testShip2, [0, 0])
-    expect(result).toBe('Overlaps another ship.')
+    expect(result).toBe(false)
   })
 
   it('receiveAttack() records a missed shot', () => {
     const testBoard = new Gameboard()
     testBoard.receiveAttack([1, 1])
-    expect(testBoard.squares[1][1]).toBe('miss')
+    expect(testBoard.tiles[1][1]).toBe('miss')
   })
 
   it('receiveAttack() can determine when a ship is hit', () => {
@@ -52,7 +52,7 @@ describe('Gameboard class', () => {
     const testShip = new Ship(1)
     testBoard.placeShip(testShip, [0, 0])
     testBoard.receiveAttack([0, 0])
-    expect(testBoard.squares[0][0]).toBe('hit')
+    expect(testBoard.tiles[0][0]).toBe('hit')
   })
 
   it('receiveAttack() can determine which ship has been hit', () => {
