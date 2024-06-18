@@ -7,7 +7,7 @@
   --accent: royalblue;
   --background-color: rgb(0, 10, 39);
   --white-ish: whitesmoke;
-  --error: darkred;
+  --error: red;
 }
 
 body {
@@ -48,6 +48,112 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Start menu styling */
+
+.startMenu {
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.StartMenuBtn {
+  width: 16ch;
+  height: 2rem;
+  border-radius: 1rem;
+}
+
+.StartMenuBtn:hover {
+  cursor: pointer;
+}
+
+/* Name input styling */
+
+.nameInputContainer {
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.nameInputForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.formRow > label {
+  font-size: 1.1rem;
+}
+
+.formRow > input {
+  font-size: 1.2rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.5rem;
+}
+
+.errorContainer {
+  color: var(--error);
+}
+
+.playBtn {
+  width: 16ch;
+  height: 2rem;
+  border-radius: 1rem;
+}
+
+.playBtn:hover {
+  cursor: pointer;
+}
+
+/* Privacy screen styling */
+
+.privacyScreen {
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.continueBtn {
+  cursor: pointer;
+  width: 16ch;
+  height: 2rem;
+  border-radius: 1rem;
+}
+
+/* Game result styling */
+
+.resultContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.playAgainBtn {
+  cursor: pointer;
+  width: 16ch;
+  height: 2rem;
+  border-radius: 1rem;
 }
 
 /* Content styling */
@@ -102,6 +208,33 @@ header {
 
 .clickableBoard > .clickableTile:active {
   background: var(--panel-active);
+}
+
+.boardIcon {
+  width: 80%;
+  height: 80%;
+}
+
+.hitIcon {
+  /* Dark red color */
+  filter: invert(12%) sepia(44%) saturate(7482%) hue-rotate(360deg)
+    brightness(84%) contrast(116%);
+}
+
+.missIcon {
+  /* Whitesmoke color */
+  filter: invert(98%) sepia(3%) saturate(73%) hue-rotate(196deg)
+    brightness(113%) contrast(92%);
+}
+
+.nextPlayerBtn {
+  width: 16ch;
+  height: 2rem;
+  border-radius: 1rem;
+}
+
+.nextPlayerBtn:not(:disabled):hover {
+  cursor: pointer;
 }
 
 /* Footer styling */
