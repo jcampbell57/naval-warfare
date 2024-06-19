@@ -16,7 +16,6 @@ class Player {
         this.gameboard.tiles[row][col] !== 'hit' &&
         this.gameboard.tiles[row][col] !== 'miss'
       ) {
-        console.log(this.gameboard.tiles[row][col])
         this.gameboard.receiveAttack([row, col])
         return
       }
