@@ -1,8 +1,12 @@
 class Ship {
-  constructor(length) {
+  constructor(name, length) {
+    this.name = name
     this.length = length
     this.hits = 0
     this.sunk = false
+    this.selected = false
+    this.placed = false
+    this.orientation = 'horizontal'
   }
 
   updateSunkStatus() {

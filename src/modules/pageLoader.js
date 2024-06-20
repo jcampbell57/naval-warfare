@@ -45,23 +45,13 @@ const validateNameInputs = () => {
   return isValid
 }
 
-const enableNextPlayerBtn = (game) => {
-  const nextPlayerBtn = document.querySelector('.nextPlayerBtn')
-  nextPlayerBtn.classList.remove('hidden')
-  nextPlayerBtn.addEventListener('click', () => {
-    nextPlayerBtn.setAttribute('disabled', '')
-    game.nextTurn()
-  })
-}
-
 const initiateGame = (mode, playerOneName, playerTwoName) => {
   if (mode === 'singlePlayer') {
     const newGame = new Game(mode)
-    newGame.startGame()
+    newGame.initiateShipPlacement()
   } else if (mode === 'multiPlayer') {
     const newGame = new Game(mode, playerOneName, playerTwoName)
-    enableNextPlayerBtn(newGame)
-    newGame.startGame()
+    newGame.initiateShipPlacement()
   }
 }
 
@@ -168,23 +158,48 @@ const createContent = () => {
   const contentContainer = document.createElement('div')
   contentContainer.classList.add('contentContainer', 'hidden')
 
+  const shipPlacementHeaderContainer = document.createElement('div')
+  shipPlacementHeaderContainer.classList.add('shipPlacementHeaderContainer')
+
+  const shipPlacementHeader = document.createElement('h2')
+  shipPlacementHeader.classList.add('shipPlacementHeader')
+  shipPlacementHeader.textContent = 'Place your ships:'
+
+  const shipPlacementAlert = document.createElement('p')
+  shipPlacementAlert.classList.add('shipPlacementAlert')
+
+  shipPlacementHeaderContainer.appendChild(shipPlacementHeader)
+  shipPlacementHeaderContainer.appendChild(shipPlacementAlert)
+
   const boardContainer = document.createElement('div')
   boardContainer.classList.add('boardContainer')
 
   const unclickableBoard = document.createElement('div')
-  unclickableBoard.classList.add('unclickableBoard')
+  unclickableBoard.classList.add('unclickableBoard', 'hidden')
 
   const clickableBoard = document.createElement('div')
   clickableBoard.classList.add('clickableBoard')
+
+  const shipSelectionContainer = document.createElement('div')
+  shipSelectionContainer.classList.add('shipSelectionContainer')
+
+  boardContainer.appendChild(unclickableBoard)
+  boardContainer.appendChild(clickableBoard)
+  boardContainer.appendChild(shipSelectionContainer)
+
+  const continueBtn = document.createElement('button')
+  continueBtn.textContent = 'Continue'
+  continueBtn.classList.add('continueBtn')
+  continueBtn.setAttribute('disabled', '')
 
   const nextPlayerBtn = document.createElement('button')
   nextPlayerBtn.textContent = 'Next player'
   nextPlayerBtn.classList.add('nextPlayerBtn', 'hidden')
   nextPlayerBtn.setAttribute('disabled', '')
 
-  boardContainer.appendChild(unclickableBoard)
-  boardContainer.appendChild(clickableBoard)
+  contentContainer.appendChild(shipPlacementHeaderContainer)
   contentContainer.appendChild(boardContainer)
+  contentContainer.appendChild(continueBtn)
   contentContainer.appendChild(nextPlayerBtn)
 
   return contentContainer

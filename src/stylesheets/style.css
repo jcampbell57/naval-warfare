@@ -122,6 +122,40 @@ header {
   cursor: pointer;
 }
 
+/* Ship selection styling */
+
+.shipPlacementHeaderContainer {
+  text-align: center;
+}
+
+.shipPlacementAlert {
+  color: var(--error);
+}
+
+.shipSelectionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.shipBtn,
+.rotateBtn,
+.resetBtn {
+  cursor: pointer;
+  width: 16ch;
+  height: 2rem;
+  border-radius: 1rem;
+}
+
+.validPlacement {
+  background: rgb(0, 255, 0, 0.4) !important;
+}
+
+.invalidPlacement {
+  background: rgb(255, 0, 0, 0.4) !important;
+}
+
 /* Privacy screen styling */
 
 .privacyScreen {
