@@ -136,13 +136,7 @@ class Game {
   }
 
   handleShipHover = (e) => {
-    e.stopPropagation()
-    console.log('Hover event triggered on tile:', e.target.dataset)
-
-    if (!this.currentShip) {
-      console.log('No ship selected, returning...')
-      return
-    }
+    if (!this.currentShip) return
 
     this.resetHighlights()
 
@@ -166,19 +160,12 @@ class Game {
           coords,
           this.currentShip.orientation
         )
-        console.log(`Tile at [${coords}] can place ship:`, canPlace)
 
         if (canPlace) {
           tile.classList.add('validPlacement')
-          // tile.classList.remove('invalidPlacement')
-          console.log('Added validPlacement')
         } else {
           tile.classList.add('invalidPlacement')
-          // tile.classList.remove('validPlacement')
-          console.log('Added invalidPlacement')
         }
-      } else {
-        console.log(`No tile found at [${r},${c}]`)
       }
     })
   }
@@ -186,10 +173,11 @@ class Game {
   processShipPlacement = (e) => {
     const row = parseInt(e.target.dataset.row, 10)
     const col = parseInt(e.target.dataset.column, 10)
-    this.clearShipPlacementAlert()
+    let clearAlert = true
 
     if (this.currentShip === null) {
       this.setShipPlacementAlert('Select a ship')
+      clearAlert = false
     } else if (
       this.currentShip &&
       this.currentPlayer.gameboard.placeShip(
@@ -205,6 +193,11 @@ class Game {
       this.refreshPlacementBoardDisplay()
     } else {
       this.setShipPlacementAlert('Invalid placement')
+      clearAlert = false
+    }
+
+    if (clearAlert) {
+      this.clearShipPlacementAlert()
     }
 
     if (this.currentPlayer.gameboard.allShipsPlaced()) {
@@ -249,7 +242,6 @@ class Game {
     ship.selected = true
     this.clearShipPlacementAlert()
     this.updateShipSelectionUI()
-    // this.enableShipPlacementListener()
   }
 
   rotateShip() {
@@ -276,12 +268,17 @@ class Game {
   resetShips() {
     this.disableResetBtn()
 
+    if (this.currentPlayer.gameboard.allShipsPlaced()) {
+      this.enableShipPlacementListener()
+    }
+
     this.currentPlayer.gameboard.ships.forEach((ship) => {
       ship.placed = false
       ship.selected = false
     })
 
     this.currentPlayer.gameboard.resetTiles()
+    this.disableContinueBtn()
     this.updateShipSelectionUI()
     this.refreshPlacementBoardDisplay()
   }
