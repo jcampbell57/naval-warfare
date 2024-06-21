@@ -1,3 +1,13 @@
+/* Custom font */
+
+@import url('https://fonts.googleapis.com/css2?family=B612:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.b612-bold {
+  font-family: 'B612';
+  font-weight: 700;
+  font-style: normal;
+}
+
 /* Page styling */
 
 :root {
@@ -48,6 +58,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.gameTitle {
+  -webkit-text-stroke: 1px var(--white-ish);
 }
 
 /* Start menu styling */

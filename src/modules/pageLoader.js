@@ -5,8 +5,8 @@ const createHeader = () => {
   const header = document.createElement('header')
 
   const title = document.createElement('h1')
-  title.classList.add('b612-bold')
-  title.textContent = 'Naval Warfare'
+  title.classList.add('b612-bold', 'gameTitle')
+  title.textContent = 'NAVAL WARFARE'
   header.appendChild(title)
 
   return header
