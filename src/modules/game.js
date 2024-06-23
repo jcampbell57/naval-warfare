@@ -107,12 +107,14 @@ class Game {
 
   clearShipPlacementAlert() {
     const shipPlacementAlert = document.querySelector('.shipPlacementAlert')
-    shipPlacementAlert.textContent = ''
+    shipPlacementAlert.classList.remove('show')
+    setTimeout(() => (shipPlacementAlert.textContent = ''), 500)
   }
 
   setShipPlacementAlert(message) {
     const shipPlacementAlert = document.querySelector('.shipPlacementAlert')
     shipPlacementAlert.textContent = message
+    setTimeout(() => shipPlacementAlert.classList.add('show'), 10)
   }
 
   disableContinueBtn() {
@@ -476,6 +478,10 @@ class Game {
     // display winner & play again button
     const contentContainer = document.querySelector('.contentContainer')
     contentContainer.prepend(resultContainer)
+
+    setTimeout(() => {
+      resultContainer.classList.add('show')
+    }, 10)
   }
 
   checkForWinner() {
