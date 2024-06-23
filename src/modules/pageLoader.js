@@ -3,6 +3,7 @@ import Game from './game'
 
 const createHeader = () => {
   const header = document.createElement('header')
+  header.setAttribute('role', 'banner')
 
   const title = document.createElement('h1')
   title.classList.add('b612-bold', 'gameTitle')
@@ -57,6 +58,8 @@ const initiateGame = (mode, playerOneName, playerTwoName) => {
 
 const createStartMenu = () => {
   const startMenu = document.createElement('div')
+  startMenu.setAttribute('role', 'navigation')
+  startMenu.setAttribute('aria-label', 'Game Start Menu')
   startMenu.setAttribute('class', 'startMenu')
 
   const startMenuHeader = document.createElement('h2')
@@ -65,12 +68,13 @@ const createStartMenu = () => {
   const onePlayerBtn = document.createElement('button')
   onePlayerBtn.classList.add('StartMenuBtn')
   onePlayerBtn.textContent = 'Single player'
+  onePlayerBtn.setAttribute('aria-label', 'Start single player game')
   onePlayerBtn.addEventListener('click', () => initiateGame('singlePlayer'))
 
   const twoPlayerBtn = document.createElement('button')
   twoPlayerBtn.classList.add('StartMenuBtn')
   twoPlayerBtn.textContent = 'Multiplayer'
-  // twoPlayerBtn.addEventListener('click', () => initiateGame('multiPlayer'))
+  twoPlayerBtn.setAttribute('aria-label', 'Start multiplayer game')
   twoPlayerBtn.addEventListener('click', () => showNameInputForm())
 
   startMenu.appendChild(startMenuHeader)
@@ -102,6 +106,7 @@ const createNameInputScreen = () => {
 
   const errorContainerOne = document.createElement('span')
   errorContainerOne.classList.add('errorContainerOne', 'errorContainer')
+  errorContainerOne.setAttribute('aria-live', 'assertive')
 
   const formRowTwo = document.createElement('div')
   formRowTwo.classList.add('formRow')
@@ -117,6 +122,7 @@ const createNameInputScreen = () => {
 
   const errorContainerTwo = document.createElement('span')
   errorContainerTwo.classList.add('errorContainerTwo', 'errorContainer')
+  errorContainerTwo.setAttribute('aria-live', 'assertive')
 
   const formRowThree = document.createElement('div')
   formRowThree.classList.add('formRow')
@@ -124,6 +130,10 @@ const createNameInputScreen = () => {
   const playBtn = document.createElement('button')
   playBtn.classList.add('playBtn')
   playBtn.innerText = 'Play'
+  playBtn.setAttribute(
+    'aria-describedby',
+    'errorContainerOne errorContainerTwo'
+  )
   playBtn.addEventListener('click', (e) => {
     e.preventDefault()
     let isValid = validateNameInputs()
@@ -157,6 +167,7 @@ const createNameInputScreen = () => {
 const createContent = () => {
   const contentContainer = document.createElement('div')
   contentContainer.classList.add('contentContainer', 'hidden')
+  contentContainer.setAttribute('role', 'main')
 
   const shipPlacementHeaderContainer = document.createElement('div')
   shipPlacementHeaderContainer.classList.add('shipPlacementHeaderContainer')
@@ -167,6 +178,8 @@ const createContent = () => {
 
   const shipPlacementAlert = document.createElement('p')
   shipPlacementAlert.classList.add('shipPlacementAlert')
+  shipPlacementAlert.setAttribute('role', 'alert')
+  shipPlacementAlert.setAttribute('aria-live', 'assertive')
 
   shipPlacementHeaderContainer.appendChild(shipPlacementHeader)
   shipPlacementHeaderContainer.appendChild(shipPlacementAlert)
@@ -176,9 +189,11 @@ const createContent = () => {
 
   const unclickableBoard = document.createElement('div')
   unclickableBoard.classList.add('unclickableBoard', 'hidden')
+  unclickableBoard.setAttribute('role', 'presentation')
 
   const clickableBoard = document.createElement('div')
   clickableBoard.classList.add('clickableBoard')
+  clickableBoard.setAttribute('role', 'grid')
 
   const shipSelectionContainer = document.createElement('div')
   shipSelectionContainer.classList.add('shipSelectionContainer')
@@ -190,6 +205,7 @@ const createContent = () => {
   const continueBtn = document.createElement('button')
   continueBtn.textContent = 'Continue'
   continueBtn.classList.add('continueBtn')
+  continueBtn.setAttribute('aria-label', 'Continue')
   continueBtn.setAttribute('disabled', '')
 
   const nextPlayerBtn = document.createElement('button')
@@ -208,9 +224,12 @@ const createContent = () => {
 const createPrivacyScreen = () => {
   const privacyScreen = document.createElement('div')
   privacyScreen.classList.add('privacyScreen', 'hidden')
+  privacyScreen.setAttribute('aria-hidden', 'true')
+  privacyScreen.setAttribute('role', 'alert')
 
   const turnIndicator = document.createElement('h2')
   turnIndicator.classList.add('turnIndicator')
+  turnIndicator.setAttribute('aria-live', 'assertive')
 
   const continueBtn = document.createElement('button')
   continueBtn.classList.add('continueBtn')
@@ -219,6 +238,7 @@ const createPrivacyScreen = () => {
     const contentContainer = document.querySelector('.contentContainer')
 
     privacyScreen.classList.add('hidden')
+    privacyScreen.setAttribute('aria-hidden', 'true')
     contentContainer.classList.remove('hidden')
   })
 
@@ -230,6 +250,7 @@ const createPrivacyScreen = () => {
 
 const createFooter = () => {
   const footer = document.createElement('footer')
+  footer.setAttribute('role', 'contentInfo')
 
   const copyright = document.createElement('p')
   copyright.textContent = `Copyright © ${new Date().getFullYear()} jcampbell57`

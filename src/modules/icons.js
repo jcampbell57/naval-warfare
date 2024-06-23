@@ -6,6 +6,11 @@ const createHitIcon = () => {
   newHitIcon.src = hitIcon
   newHitIcon.alt = 'hit'
   newHitIcon.classList.add('boardIcon', 'hitIcon')
+  newHitIcon.setAttribute('role', 'img')
+  newHitIcon.setAttribute(
+    'aria-label',
+    'Bomb explosion indicating a successful hit'
+  )
   return newHitIcon
 }
 
@@ -14,6 +19,9 @@ const createMissIcon = () => {
   newMissIcon.src = missIcon
   newMissIcon.alt = 'miss'
   newMissIcon.classList.add('boardIcon', 'missIcon')
+  newMissIcon.setAttribute('role', 'img')
+  newMissIcon.setAttribute('aria-label', 'Water splash indicating a miss')
+
   return newMissIcon
 }
 

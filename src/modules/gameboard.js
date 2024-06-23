@@ -133,9 +133,14 @@ class Gameboard {
     this.tiles.forEach((row, rowIndex) => {
       row.forEach((tileContent, columnIndex) => {
         const newTile = document.createElement('div')
+        newTile.classList.add('boardTile')
         newTile.setAttribute('data-row', rowIndex)
         newTile.setAttribute('data-column', columnIndex)
-        newTile.classList.add('boardTile')
+        newTile.setAttribute('role', 'gridcell')
+        newTile.setAttribute(
+          'aria-label',
+          `Row ${rowIndex + 1}, Column ${columnIndex + 1}, ${tileContent ? (tileContent === 'hit' ? 'Hit' : 'Miss') : 'empty'}`
+        )
 
         if (tileContent === 'hit') {
           newTile.appendChild(createHitIcon())

@@ -444,6 +444,7 @@ class Game {
       turnIndicator.textContent = `${this.currentPlayer.name}'s turn`
       contentContainer.classList.add('hidden')
       privacyScreen.classList.remove('hidden')
+      privacyScreen.setAttribute('aria-hidden', 'false')
       this.updateBoards(this.currentPlayer)
     } else if (this.currentPlayer.type === 'AI') {
       this.randomComputerMove()
@@ -467,6 +468,7 @@ class Game {
     const playAgainBtn = document.createElement('button')
     playAgainBtn.classList.add('playAgainBtn')
     playAgainBtn.textContent = 'Play again?'
+    playAgainBtn.setAttribute('aria-label', 'Play again')
     playAgainBtn.addEventListener('click', () => this.playAgain())
 
     resultContainer.appendChild(playAgainBtn)
