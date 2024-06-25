@@ -113,6 +113,41 @@ class Gameboard {
     }
   }
 
+  getAdjacentTiles([row, col]) {
+    let adjacentTiles = [
+      [row + 1, col],
+      [row, col + 1],
+      [row - 1, col],
+      [row, col - 1],
+    ].filter(([r, c]) => r >= 0 && r < 10 && c >= 0 && c < 10)
+
+    // shuffle with Fisher-Yates (or Knuth) shuffle algorithm
+    for (let i = adjacentTiles.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[adjacentTiles[i], adjacentTiles[j]] = [
+        adjacentTiles[j],
+        adjacentTiles[i],
+      ]
+    }
+
+    return adjacentTiles
+  }
+
+  isValidMove(row, col) {
+    return (
+      row >= 0 &&
+      row < 10 &&
+      col >= 0 &&
+      col < 10 &&
+      this.tiles[row][col] !== 'hit' &&
+      this.tiles[row][col] !== 'miss'
+    )
+  }
+
+  isHit(row, col) {
+    return this.tiles[row][col] === 'hit'
+  }
+
   allShipsSunk() {
     return this.ships.every((ship) => ship.isSunk())
   }
