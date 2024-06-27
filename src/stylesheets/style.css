@@ -341,3 +341,27 @@ footer > a {
 .githubIcon:hover {
   transform: rotate(-360deg) scale(1.2);
 }
+
+/* Mobile styling */
+
+@media only screen and (max-width: 1024px) {
+  .contentContainer {
+    gap: 1rem;
+  }
+
+  .boardContainer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .clickableBoard,
+  .unclickableBoard {
+    height: 35vh;
+    width: 35vh;
+  }
+
+  .shipSelectionContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
