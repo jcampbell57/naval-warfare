@@ -10,7 +10,9 @@ Available [here](https://jcampbell57.github.io/naval-warfare/)
 
 ## Features
 
+- Singleplayer mode
 - Multiplayer mode
+- Manual ship placement
 - Icons from [SVG Repo](https://www.svgrepo.com/)
 
 ## Technologies utilized
@@ -24,14 +26,28 @@ Available [here](https://jcampbell57.github.io/naval-warfare/)
 ## Screenshots
 
 ### Start menu
+![Start menu](src/assets/start-menu-600w.png)
+![Start menu](src/assets/mobile-start-menu-180w.png)
 
 ### Name input
+![Name input](src/assets/name-input-600w.png)
+![Name input](src/assets/mobile-name-input-180w.png)
+
+### Ship placement
+![Ship placement](src/assets/ship-placement-600w.png)
+![Ship placement](src/assets/mobile-ship-placement-180w.png)
 
 ### Gameplay
+![Gameplay](src/assets/gameplay-600w.png)
+![Gameplay](src/assets/mobile-gameplay-180w.png)
 
 ### Multiplayer privacy screen
+![Multiplayer privacy screen](src/assets/privacy-screen-600w.png)
+![Multiplayer privacy screen](src/assets/mobile-privacy-screen-180w.png)
 
 ### Winner declaration
+![Winner declaration](src/assets/end-game-600w.png)
+![Winner declaration](src/assets/mobile-end-game-180w.png)
 
 ## Behind the scenes
 
@@ -39,10 +55,9 @@ Available [here](https://jcampbell57.github.io/naval-warfare/)
 
 This project could be improved with:
 
-- More game modes
+- Single player difficulty modes
 - Ship icons to indicate ship placement instead of tile background color
-- Responsive design for mobile or tablet use
-- Improved styling
+- Animations or transitions for hit & miss attacks
 
 ### Notes
 
@@ -126,9 +141,3 @@ This project could be improved with:
 
 - Deployment
   - `npm run deploy`
-
-### Todo
-
-- allow manual ship placement with rotation
-- add animations for hit & miss attacks
-- add subtle animations for page transitions
