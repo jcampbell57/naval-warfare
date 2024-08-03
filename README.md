@@ -2,50 +2,83 @@
 
 ## Project info
 
-The purpose of this project is to practice Test Driven Development (TDD) and tie together the concepts learned in the JavaScript module of The Odin Project. Project description can be found [here](https://www.theodinproject.com/lessons/javascript-battleship).
+An interactive, two player game of Battleship. The purpose of this project is to practice Test Driven Development (TDD) and tie together the concepts learned in the JavaScript module of The Odin Project. This is the capstone project of [The Odin Project's JavaScript course](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript).
+
+Project description can be found [here](https://www.theodinproject.com/lessons/javascript-battleship).
+
 
 ## Live demo
 
-Available [here](https://jcampbell57.github.io/naval-warfare/)
+Live demo available [here](https://jcampbell57.github.io/naval-warfare/)
+
+
+## Table of Contents
+
+* [Features](#features)
+* [Technologies utilized](#technologies-utilized)
+* [Learning outcomes](#learning-outcomes)
+* [Project screenshots](#project-screenshots)
+* [Behind the Scenes](#behind-the-scenes)
+* [Installation](#installation)
+
 
 ## Features
 
 - Singleplayer mode
 - Multiplayer mode
 - Manual ship placement
-- Icons from [SVG Repo](https://www.svgrepo.com/)
+- Responsive design with mobile support
+
 
 ## Technologies utilized
 
+- HTML5
+- CSS3
+- JavaScript ES6
 - Jest
+- webpack
 - Babel
-- Webpack
 - ESLint
 - Prettier
 
-## Screenshots
 
-### Start menu
+## Learning outcomes
+
+This project helped to reinforce the following skills:
+
+- Test Driven Development (TDD) with Jest
+- ESLint integration
+- Prettier integration
+- Babel integration
+- webpack
+- JavaScript modules
+- DOM manipulation
+- CSS styling
+
+
+## Project screenshots
+
+### Start menu (desktop & mobile)
 ![Start menu](src/assets/start-menu-600w.png)
 ![Start menu](src/assets/mobile-start-menu-180w.png)
 
-### Name input
+### Name input (desktop & mobile)
 ![Name input](src/assets/name-input-600w.png)
 ![Name input](src/assets/mobile-name-input-180w.png)
 
-### Ship placement
+### Ship placement (desktop & mobile)
 ![Ship placement](src/assets/ship-placement-600w.png)
 ![Ship placement](src/assets/mobile-ship-placement-180w.png)
 
-### Gameplay
+### Gameplay (desktop & mobile)
 ![Gameplay](src/assets/gameplay-600w.png)
 ![Gameplay](src/assets/mobile-gameplay-180w.png)
 
-### Multiplayer privacy screen
+### Multiplayer privacy screen (desktop & mobile)
 ![Multiplayer privacy screen](src/assets/privacy-screen-600w.png)
 ![Multiplayer privacy screen](src/assets/mobile-privacy-screen-180w.png)
 
-### Winner declaration
+### Winner declaration (desktop & mobile)
 ![Winner declaration](src/assets/end-game-600w.png)
 ![Winner declaration](src/assets/mobile-end-game-180w.png)
 
@@ -56,14 +89,13 @@ Available [here](https://jcampbell57.github.io/naval-warfare/)
 This project could be improved with:
 
 - Single player difficulty modes
+- Drag and drop feature to place ships
 - Ship icons to indicate ship placement instead of tile background color
 - Animations or transitions for hit & miss attacks
 
 ### Notes
 
 - ESLint and prettier config did not seem to be working together. After much time trying to debug, restarting VSCode seemed to resolve the issue.
-
-- I have included [a custom font](https://fonts.google.com/specimen/B612?preview.text=NAVAL%20WARFARE), but it does not appear to be rendering properly.
 
 ### Resources
 
@@ -103,6 +135,8 @@ This project could be improved with:
 
 - [This codepen](https://codepen.io/sosuke/pen/Pjoqqp) is very useful for assigning colors to SVG icons.
 
+- [SVG Repo](https://www.svgrepo.com/) for icons 
+
 ### Terminal commmands used during development
 
 - Jest setup
@@ -141,3 +175,13 @@ This project could be improved with:
 
 - Deployment
   - `npm run deploy`
+
+
+## Installation
+
+- Clone this repository to your desktop.
+- Navigate to the top level of the directory by running `cd naval-warfare`.
+- Run `npm install` to install the required dependencies.  
+- Open `dist/index.html` in your browser.
+- Run `npm run watch:webpack` to update the `dist` folder on save
+- Refresh page after saving to see changes
